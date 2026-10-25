@@ -75,4 +75,142 @@ Administrative access was configured for authorized management of the environmen
 
 Basic validation included checking the operating system version, available storage, memory, and network connectivity.
 
-Example validation
+Example validation commands:
+
+```bash
+lsb_release -a
+free -h
+df -h
+ip addr
+```
+
+All environment-specific IP addresses and identifying infrastructure details are intentionally excluded from this documentation.
+
+---
+
+## 5. Containerization Strategy
+
+Docker and Docker Compose were selected to manage the application stack and supporting infrastructure services.
+
+This deployment model provides:
+
+- Reproducible application configurations.
+- Independent container lifecycle management.
+- Simplified service updates.
+- Environment-based configuration.
+- Isolation between application services.
+- Centralized container logging and resource monitoring.
+
+### Supporting Services
+
+The OpenCTI environment uses several supporting services:
+
+| Component | Function |
+|---|---|
+| Elasticsearch | Intelligence indexing and search |
+| Redis | Caching and supporting application operations |
+| RabbitMQ | Message queuing and asynchronous processing |
+| MinIO | Object storage |
+| OpenCTI Workers | Background intelligence processing |
+| Intelligence Connectors | External collection and enrichment |
+
+These services are managed through Docker Compose alongside the OpenCTI application.
+
+---
+
+## 6. Network Architecture and Security
+
+The environment was designed with restricted administrative access and controlled communication between infrastructure components.
+
+Security considerations included:
+
+- Limiting access to administrative services.
+- Restricting application exposure to authorized systems.
+- Separating application workloads through virtual machines.
+- Managing API authentication through dedicated credentials.
+- Restricting unnecessary network access.
+- Protecting sensitive configuration and environment files.
+
+Specific IP addresses, internal domain names, and detailed network access rules are intentionally omitted from the public documentation.
+
+The architecture diagrams represent logical communication flows rather than a complete operational network topology.
+
+---
+
+## 7. Infrastructure Validation
+
+After deploying the virtual machines and application services, basic system health and resource utilization were checked.
+
+### Memory Validation
+
+```bash
+free -h
+```
+
+This command was used to evaluate memory availability and swap utilization.
+
+### Docker Container Health
+
+```bash
+sudo docker ps
+```
+
+This command provides a list of running containers and their operational status.
+
+### Resource Utilization
+
+```bash
+sudo docker stats --no-stream
+```
+
+Container statistics were used to evaluate CPU and memory consumption across the application stack.
+
+### System Services
+
+```bash
+sudo systemctl status docker
+```
+
+This command verifies that the Docker service is running.
+
+These checks helped establish that the infrastructure was operating normally before enabling additional intelligence integrations.
+
+---
+
+## 8. Results
+
+The infrastructure deployment established a functional virtualization environment capable of hosting interconnected CTI applications.
+
+The completed environment supports:
+
+- Independent MISP and OpenCTI workloads.
+- Containerized application services.
+- External intelligence collection and enrichment.
+- Resource monitoring and operational troubleshooting.
+- Expansion of the intelligence platform as requirements evolve.
+
+---
+
+## 9. Lessons Learned
+
+The infrastructure deployment reinforced several important concepts:
+
+- Resource planning is essential when deploying data-intensive intelligence platforms.
+- Containerization simplifies application management but requires an understanding of underlying networking and dependencies.
+- Separating major workloads improves operational flexibility.
+- Infrastructure security should be considered during initial design rather than added after deployment.
+- Monitoring application and system resources provides a baseline for future troubleshooting and capacity planning.
+
+---
+
+## 10. Next Steps
+
+The following documentation provides a more detailed examination of the application deployments:
+
+- MISP installation and configuration.
+- OpenCTI installation and supporting services.
+- Network security configuration.
+- Intelligence connector integration.
+- Troubleshooting and operational validation.
+
+Sensitive environment-specific configuration details are excluded from this repository.
