@@ -1,22 +1,11 @@
-# CTI Lab Evidence
+## Infrastructure Evidence
 
-This directory contains sanitized screenshots documenting the deployment, configuration, and validation of the self-hosted Cyber Threat Intelligence laboratory.
+### Proxmox Virtual Environment
 
-Screenshots are organized to demonstrate infrastructure deployment, platform operation, intelligence integration, and analysis workflows.
+![Sanitized Proxmox infrastructure overview](01-proxmox-infrastructure.png)
 
-All evidence is reviewed before publication to exclude credentials, internal IP addresses, private hostnames, authentication tokens, and other sensitive information.
+**Figure 1 — Proxmox Infrastructure Overview**
 
-## Evidence Index
+The Proxmox management dashboard demonstrates the operational status of the virtualized CTI environment and provides visibility into host resource utilization.
 
-| Evidence | Description |
-|---|---|
-| Infrastructure Overview | Virtualized environment hosting the CTI platforms |
-| MISP Dashboard | Operational MISP intelligence platform |
-| MISP Intelligence Feed | External intelligence collection and event ingestion |
-| OpenCTI Dashboard | Centralized intelligence analysis platform |
-| Connector Integrations | Configured intelligence collection and enrichment services |
-| Intelligence Ingestion | Imported reports, indicators, and observables |
-| Enrichment Results | Manual enrichment and resulting intelligence |
-| Resource Monitoring | Application and container resource utilization |
-
-Screenshots will be added as they are reviewed and sanitized.
+Sensitive infrastructure identifiers have been permanently redacted.
