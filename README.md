@@ -80,17 +80,27 @@ For a detailed breakdown of the infrastructure, supporting services, and intelli
 
 ## Project Documentation
 
-Detailed technical documentation is organized into the following areas:
+The laboratory's implementation, configuration, troubleshooting, and validation procedures are documented in the following technical guides.
 
-- **Infrastructure Deployment:** Virtual machine provisioning, Linux configuration, and resource allocation.
-- **MISP Deployment:** Container configuration, threat intelligence feeds, API access, and platform validation.
-- **OpenCTI Deployment:** Application services, container orchestration, and platform configuration.
-- **Network Security:** Access restrictions, network segmentation, and secure service communication.
-- **Intelligence Integrations:** Connector configuration, authentication, and enrichment workflows.
-- **Troubleshooting:** Technical problems encountered during deployment, root-cause analysis, and implemented resolutions.
-- **Validation and Results:** Evidence demonstrating successful intelligence collection, processing, and enrichment.
+| Documentation | Description |
+|---|---|
+| [Infrastructure Deployment](docs/01-infrastructure-deployment.md) | Proxmox virtualization, Ubuntu Server provisioning, resource planning, and Docker preparation. |
+| [MISP Deployment and Configuration](docs/02-misp-deployment.md) | MISP installation, HTTPS configuration, intelligence feeds, API integration, and troubleshooting. |
+| [OpenCTI Deployment and Configuration](docs/03-opencti-deployment.md) | OpenCTI deployment, supporting services, container orchestration, and resource optimization. |
+| [Network Security and Access Controls](docs/04-network-security.md) | Restricted management access, internal DNS, Docker firewall behavior, TLS, and authentication. |
+| [Threat Intelligence Connector Integration](docs/05-intelligence-connectors.md) | External intelligence collection, enrichment workflows, connector configuration, and API integration. |
+| [Troubleshooting and Problem Resolution](docs/06-troubleshooting.md) | Technical challenges, investigations, root-cause analysis, corrective actions, and verification. |
+| [Validation and Operational Results](docs/07-validation-results.md) | Evidence of platform availability, successful intelligence ingestion, enrichment, and resource monitoring. |
 
-Supporting documentation and screenshots will be added as the project develops.
+### Technical Architecture
+
+For detailed information about the laboratory's components, supporting services, and intelligence data flows, see the [Architecture Documentation](architecture/README.md).
+
+### Documentation Approach
+
+The documentation emphasizes reproducible deployment practices, technical decision-making, security considerations, and evidence-based validation.
+
+Configuration examples are sanitized, and the repository is maintained as an evolving technical reference as the laboratory develops.
 
 ---
 
