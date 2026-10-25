@@ -110,10 +110,10 @@ The deployment is supported by sanitized screenshots demonstrating infrastructur
 
 | Evidence | Description |
 |---|---|
-| [Proxmox Infrastructure](screenshots/README.md#infrastructure-evidence) | Virtualization environment and host resource monitoring |
-| [MISP Dashboard](screenshots/README.md#misp-platform-evidence) | Operational intelligence collection platform |
-| [OpenPhish Feed Import](screenshots/README.md#openphish-intelligence-collection) | Collection and organization of URL-based threat intelligence |
-| [OpenCTI Integrations](screenshots/README.md#opencti-integration-evidence) | External intelligence collection and enrichment connectors |
+| [Proxmox Infrastructure](screenshots/README.md#01-proxmox-infrastructure) | Virtualization environment and host resource monitoring |
+| [MISP Dashboard](screenshots/README.md#02-misp-threat-intelligence-dashboard) | Operational intelligence collection platform |
+| [OpenPhish Feed Import](screenshots/README.md#03-misp-openphish-feed-ingestion) | Collection and organization of URL-based threat intelligence |
+| [OpenCTI Integrations](screenshots/README.md#04-opencti-intelligence-integrations) | External intelligence collection and enrichment connectors |
 
 See the [Complete Evidence Gallery](screenshots/README.md) for screenshots, captions, and validation context.
 
