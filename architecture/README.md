@@ -5,7 +5,7 @@
 This document illustrates the logical architecture of the self-hosted Cyber Threat Intelligence (CTI) laboratory.
 
 The environment uses Proxmox Virtual Environment to host independent MISP and OpenCTI workloads. Docker Compose manages the application services, supporting infrastructure, and threat intelligence connectors.
-
+ 
 The diagrams intentionally exclude operational IP addresses, internal hostnames, credentials, and detailed network boundaries.
 
 ## Infrastructure Architecture
