@@ -2,9 +2,7 @@
 
 This directory contains sanitized screenshots documenting the deployment, configuration, integration, and validation of a self-hosted Cyber Threat Intelligence (CTI) laboratory built with Proxmox, MISP, and OpenCTI.
 
-The screenshots provide supporting evidence of operational infrastructure, intelligence collection, platform integration, intelligence ingestion, and analytical reporting.
-
-Each image is accompanied by an explanation of the technical capability demonstrated and its relevance to the overall threat intelligence workflow.
+The evidence demonstrates operational infrastructure, threat intelligence collection, ingestion, enrichment, and structured intelligence reporting.
 
 ---
 
@@ -12,257 +10,236 @@ Each image is accompanied by an explanation of the technical capability demonstr
 
 | Screenshot | Evidence | Description |
 |---|---|---|
-| 01 | [Proxmox Infrastructure](#01-proxmox-infrastructure) | Virtualization and infrastructure resource monitoring |
-| 02 | [MISP Dashboard](#02-misp-threat-intelligence-dashboard) | Operational threat intelligence collection platform |
-| 03 | [MISP OpenPhish Feed](#03-misp-openphish-feed-ingestion) | Collection of URL-based phishing intelligence |
-| 04 | [OpenCTI Integrations](#04-opencti-intelligence-integrations) | External intelligence collection and enrichment connectors |
-| 05 | [MISP-to-OpenCTI Ingestion](#05-misp-to-opencti-intelligence-ingestion) | Transferred intelligence accessible in OpenCTI |
-| 06 | [OpenCTI Intelligence Assessment](#06-opencti-phishing-infrastructure-assessment) | Structured analysis of suspicious phishing infrastructure |
+| 01 | [Proxmox Infrastructure](#01-proxmox-infrastructure) | Virtualization and infrastructure monitoring |
+| 02 | [MISP Dashboard](#02-misp-threat-intelligence-dashboard) | Operational MISP platform |
+| 03 | [MISP OpenPhish Feed](#03-misp-openphish-feed-ingestion) | External phishing intelligence collection |
+| 04 | [OpenCTI Integrations](#04-opencti-intelligence-integrations) | Intelligence import and enrichment connectors |
+| 05 | [MISP-to-OpenCTI Ingestion](#05-misp-to-opencti-intelligence-ingestion) | Imported intelligence accessible in OpenCTI |
+| 06 | [Intelligence Assessment](#06-opencti-phishing-infrastructure-assessment) | Structured phishing infrastructure analysis |
+| 07a–07b | [VirusTotal Enrichment](#07-virustotal-enrichment) | Observable enrichment and detection results |
 
 ---
 
 ## 01. Proxmox Infrastructure
 
-![Proxmox infrastructure overview](01-proxmox-infrastructure.png)
+![Proxmox infrastructure](01-proxmox-infrastructure.png)
 
 **Figure 1 — Proxmox Virtual Environment**
 
-The Proxmox management interface demonstrates the operational status of the virtualized infrastructure supporting the CTI laboratory.
+The Proxmox management dashboard demonstrates the operational status of the virtualized infrastructure supporting the laboratory.
 
-The environment uses dedicated Ubuntu Server virtual machines for MISP and OpenCTI, providing separation between the intelligence collection and analysis platforms.
+Dedicated Ubuntu Server virtual machines host MISP and OpenCTI as independent containerized deployments, providing workload separation and independent resource management.
 
-The screenshot provides evidence of:
-
-- Operational virtualization infrastructure.
-- Resource availability and utilization monitoring.
-- Dedicated virtual machine workloads.
-- Centralized infrastructure administration.
-
-Proxmox provides the underlying compute and virtualization capabilities required to operate the containerized threat intelligence platforms.
+The screenshot documents virtualization availability, active workloads, and infrastructure resource monitoring.
 
 ---
 
 ## 02. MISP Threat Intelligence Dashboard
 
-![MISP threat intelligence dashboard](02-misp-dashboard.png)
+![MISP dashboard](02-misp-dashboard.png)
 
 **Figure 2 — Operational MISP Platform**
 
-The MISP dashboard demonstrates the deployment and availability of the Malware Information Sharing Platform.
+The MISP dashboard demonstrates the deployment and availability of the intelligence collection platform.
 
-MISP serves as an intelligence collection and management platform, supporting the ingestion, organization, and sharing of structured threat intelligence.
+MISP supports the ingestion, organization, management, and sharing of threat intelligence events and attributes.
 
-The screenshot provides evidence of:
-
-- Successful deployment of the MISP application.
-- Access to the intelligence management interface.
-- Event and attribute management capabilities.
-- Intelligence collection and reporting functionality.
-
-MISP provides an upstream intelligence source for the OpenCTI environment.
+The platform serves as an upstream intelligence source for OpenCTI.
 
 ---
 
 ## 03. MISP OpenPhish Feed Ingestion
 
-![Sanitized OpenPhish intelligence event](03-misp-openphish-feed.png)
+![OpenPhish feed in MISP](03-misp-openphish-feed.png)
 
 **Figure 3 — OpenPhish Threat Intelligence Collection**
 
-This screenshot demonstrates the ingestion of URL-based phishing intelligence into MISP through the OpenPhish threat intelligence feed.
+The screenshot demonstrates the ingestion of URL-based phishing intelligence through the OpenPhish feed.
 
-The collected intelligence is organized into an event containing URL attributes, making it accessible for investigation, management, and sharing with other intelligence platforms.
+Imported URL attributes are organized into MISP events, supporting investigation and downstream sharing with OpenCTI.
 
-The screenshot provides evidence of:
-
-- External threat intelligence feed ingestion.
-- Creation and population of a MISP intelligence event.
-- Organization of phishing-related URL attributes.
-- Availability of imported intelligence for downstream integration.
-
-Sensitive MISP administrative information and identifiers have been redacted.
-
-This collection workflow establishes MISP as a source of intelligence for OpenCTI.
+Sensitive administrative information and internal identifiers have been redacted.
 
 ---
 
 ## 04. OpenCTI Intelligence Integrations
 
-![OpenCTI connector integrations](04-opencti-connectors.png)
+![OpenCTI integrations](04-opencti-connectors.png)
 
-**Figure 4 — OpenCTI External Import and Enrichment Connectors**
+**Figure 4 — OpenCTI Intelligence Connectors**
 
-The OpenCTI integrations interface demonstrates the deployment and registration of connectors supporting external intelligence collection and observable enrichment.
+The OpenCTI integrations interface demonstrates configured connectors supporting intelligence collection and observable enrichment.
 
-The laboratory incorporates the following intelligence sources and services.
+External intelligence collection includes MISP, MITRE ATT&CK, AlienVault OTX, and CISA KEV.
 
-**External intelligence collection:**
+Enrichment services include VirusTotal, urlscan.io, and AbuseIPDB.
 
-- MISP — Imported intelligence events, reports, and observables.
-- MITRE ATT&CK — Structured adversary behavior intelligence.
-- AlienVault OTX — Community-driven threat intelligence.
-- CISA KEV — Information about known exploited vulnerabilities.
-
-**Internal intelligence enrichment:**
-
-- VirusTotal — URL, domain, IP address, and file reputation context.
-- urlscan.io — Website and URL investigation.
-- AbuseIPDB — IP address reputation and abuse reporting.
-
-The screenshot provides evidence of connector registration, active status, and integration monitoring.
-
-Connector availability is distinguished from successful data processing; intelligence ingestion and enrichment are validated separately through platform records and investigation results.
+Active connector status confirms registration and connectivity at the time of capture. Intelligence ingestion and enrichment are validated separately.
 
 ---
 
 ## 05. MISP-to-OpenCTI Intelligence Ingestion
 
-![OpenCTI imported MISP intelligence](05-opencti-misp-ingestion.png)
+![MISP intelligence imported into OpenCTI](05-opencti-misp-ingestion.png)
 
 **Figure 5 — Imported MISP Intelligence Available in OpenCTI**
 
-This screenshot demonstrates intelligence collected through MISP being made available within OpenCTI through the configured MISP connector.
+This screenshot documents intelligence collected through MISP and subsequently made available within OpenCTI through the MISP connector.
 
-The OpenPhish intelligence report provides a practical example of transferring intelligence from an upstream collection platform into a centralized intelligence analysis environment.
-
-The workflow follows this path:
+The workflow follows:
 
 **OpenPhish → MISP → OpenCTI**
 
-The screenshot provides evidence of:
+The imported intelligence can be accessed for investigation, correlation, observable enrichment, and structured reporting.
 
-- Availability of the imported OpenPhish report within OpenCTI.
-- Integration between MISP and OpenCTI.
-- Representation of imported intelligence within the analysis platform.
-- Access to collected intelligence for subsequent investigation and enrichment.
-
-This workflow demonstrates how external threat intelligence can move between platforms without requiring the analyst to manually recreate the original intelligence records.
-
-It also provides the foundation for follow-on analysis of suspicious URLs, associated IP addresses, and related observables.
+This demonstrates integration between the collection and analysis platforms.
 
 ---
 
 ## 06. OpenCTI Phishing Infrastructure Assessment
 
-![OpenCTI phishing infrastructure intelligence assessment](06-opencti-intelligence-report.png)
+![OpenCTI intelligence report](06-opencti-intelligence-report.png)
 
-**Figure 6 — Structured Phishing Infrastructure Intelligence Assessment**
+**Figure 6 — Phishing Infrastructure Intelligence Assessment**
 
-This screenshot demonstrates the creation of a structured intelligence report within OpenCTI using intelligence initially identified through the OpenPhish feed and imported via MISP.
+This screenshot demonstrates the creation of a structured intelligence assessment using OpenCTI.
 
-The investigation examined the suspicious URL `https://pc.tiktokgb.com/` and its associated IPv4 address, `38.182.104.108`.
+The investigation examined the suspicious URL `https://pc.tiktokgb.com/` and associated IPv4 address `38.182.104.108`.
 
-The analysis incorporated several sources of intelligence and enrichment data:
+The assessment incorporates intelligence originating from OpenPhish and MISP, together with enrichment findings from VirusTotal and AbuseIPDB.
 
-- **OpenPhish:** Initial identification of the suspicious URL.
-- **MISP:** Collection and organization of the URL-based intelligence.
-- **OpenCTI:** Centralized investigation and intelligence reporting.
-- **VirusTotal:** Six malicious detections among 93 security vendor analyses at the time of investigation.
-- **AbuseIPDB:** No abuse reports and a 0% abuse confidence score for the investigated IP address at the time of enrichment.
-- **DNS investigation:** Resolution of the suspicious domain to the associated IPv4 address.
+VirusTotal identified six malicious detections among 93 security vendor analyses at the time of investigation.
 
-The intelligence assessment documents the relationship between the investigated URL, the associated IPv4 observable, and the indicators used during analysis.
+AbuseIPDB returned zero abuse reports and a 0% abuse confidence score for the investigated IP address.
 
-The report also demonstrates the use of structured intelligence reporting features, including entity distribution, confidence assessment, TLP classification, and correlation with imported intelligence.
+The report demonstrates how collected intelligence can be enriched, evaluated, and organized into an analyst-produced intelligence assessment.
 
-The findings illustrate how multiple intelligence sources can be combined to develop a more complete understanding of suspicious infrastructure.
+The findings are interpreted as supporting evidence rather than definitive attribution or proof of malicious activity.
 
-Importantly, differences between reputation services are evaluated as separate evidence rather than treated as definitive proof of malicious or benign activity.
+---
 
-This investigation demonstrates the progression from intelligence collection to enrichment, contextual analysis, and structured reporting.
+## 07. VirusTotal Enrichment
+
+### 07a. OpenCTI Observable Overview
+
+![VirusTotal observable overview](07a-opencti-virustotal-overview.png)
+
+**Figure 7a — URL Observable and VirusTotal Integration**
+
+The OpenCTI observable interface demonstrates the enrichment of a URL originally imported through the MISP connector.
+
+The observable retains its relationship with the imported OpenPhish intelligence report and the subsequent phishing infrastructure assessment.
+
+The interface also displays the MISP and VirusTotal connectors as creators of the observable record, providing evidence that intelligence from multiple sources was incorporated into the platform.
+
+The activity history documents a VirusTotal enrichment update to the observable's score.
+
+Sensitive MISP management details and laboratory identifiers have been redacted, while public investigation indicators remain visible.
+
+### 07b. VirusTotal Detection Results
+
+![VirusTotal enrichment details](07b-opencti-virustotal-details.png)
+
+**Figure 7b — VirusTotal Enrichment Notes and Security Vendor Classifications**
+
+This screenshot demonstrates the intelligence returned by VirusTotal and recorded within OpenCTI as enrichment notes.
+
+At the time of investigation, the enrichment results included:
+
+| Classification | Results |
+|---|---:|
+| Total security vendor analyses | 93 |
+| Malicious | 6 |
+| Suspicious | 0 |
+| Harmless | 52 |
+| Undetected | 35 |
+
+The enrichment notes also contain individual vendor classifications.
+
+For example, Sophos categorized the URL as phishing and fraud, while other vendors returned different classifications.
+
+These discrepancies illustrate the importance of evaluating threat intelligence across multiple sources rather than relying exclusively on a single reputation score.
+
+The results provide additional context for the structured phishing infrastructure assessment documented in Screenshot 06.
 
 ---
 
 ## Intelligence Workflow Summary
 
-The collected screenshots document a practical intelligence lifecycle implemented across the laboratory.
+The laboratory implements a threat intelligence workflow spanning collection, ingestion, enrichment, and analysis.
 
 ```mermaid
 flowchart TD
-    A["External Threat Intelligence Sources"]
+    A["OpenPhish and External Intelligence Sources"]
     B["MISP Intelligence Collection"]
     C["OpenCTI Intelligence Ingestion"]
     D["Observable Investigation"]
-    E["VirusTotal / urlscan.io / AbuseIPDB"]
-    F["Intelligence Assessment and Reporting"]
+    E["VirusTotal and Other Enrichment Sources"]
+    F["Structured Intelligence Reporting"]
 
     A --> B
     B -->|"MISP Connector"| C
     C --> D
-    D -->|"Enrichment Requests"| E
-    E -->|"Additional Context"| D
+    D -->|"Enrichment"| E
+    E -->|"Results and Context"| D
     D --> F
 ```
 
-The workflow demonstrates the separation of intelligence collection, centralized management, enrichment, and analytical reporting.
-
-Each stage contributes additional context to support threat intelligence investigations and evidence-based assessments.
+The workflow demonstrates how collected intelligence becomes available for investigation and can be supplemented by additional intelligence sources before being incorporated into an analytical report.
 
 ---
 
 ## Evidence Collection and Validation
 
-Screenshots are selected to document meaningful technical capabilities, system configurations, or operational results.
+Screenshots are collected to document operational capabilities and meaningful implementation results.
 
-Evidence is evaluated using the following principles:
+The evidence follows these principles:
 
-1. **Authenticity:** Screenshots originate from the deployed laboratory environment.
-2. **Technical relevance:** Each image illustrates a specific implementation or intelligence workflow.
-3. **Traceability:** Evidence corresponds to the associated technical documentation.
-4. **Validation:** Screenshots support claims about system operation without overstating what the displayed information proves.
-5. **Security:** Confidential information is removed before publication.
-6. **Clarity:** Images are cropped and organized to focus on the relevant technical details.
-
-Where applicable, screenshots distinguish between successful platform connectivity, successful data ingestion, and completed analyst investigations.
+1. **Authenticity:** Screenshots originate from the deployed laboratory.
+2. **Relevance:** Each screenshot demonstrates an implementation step or technical capability.
+3. **Accuracy:** Captions distinguish observed results from assumptions.
+4. **Traceability:** Evidence aligns with the project's technical documentation.
+5. **Security:** Confidential operational information is excluded before publication.
+6. **Clarity:** Screenshots are cropped to emphasize relevant details.
 
 ---
 
 ## Security and Privacy
 
-All screenshots are reviewed and sanitized before being committed to the repository.
+All screenshots undergo a review for sensitive information before being committed to the repository.
 
-Information excluded from published evidence includes:
+The following information is excluded or sanitized:
 
-- Internal IP addresses and private network ranges.
-- Internal DNS names and management hostnames.
-- Authentication credentials and API keys.
-- Session tokens and authentication headers.
-- Personal or administrative account identifiers.
-- Sensitive infrastructure configuration details.
-- Internal identifiers that are not necessary to demonstrate technical functionality.
+- Internal IP addresses and network ranges.
+- Private DNS names and management endpoints.
+- API keys, passwords, authentication tokens, and session data.
+- Personal and administrative account identifiers.
+- Sensitive platform configuration details.
+- Internal event identifiers and management URLs.
 
-Public threat intelligence observables, including suspicious domains and IP addresses examined during the investigation, may remain visible when they are relevant to the documented analysis.
+Public threat intelligence observables may remain visible where they are directly relevant to the investigation.
 
-Redactions are permanently applied to exported images. Original screenshots containing confidential information are not included in the repository.
+Redactions are permanently applied to the exported images.
 
 ---
 
 ## Supporting Documentation
 
-The screenshots complement the technical implementation guides available in the main repository.
-
 | Documentation | Description |
 |---|---|
-| [Infrastructure Deployment](../docs/01-infrastructure-deployment.md) | Virtual machine provisioning, infrastructure planning, and Docker deployment |
-| [MISP Deployment](../docs/02-misp-deployment.md) | Intelligence collection, MISP configuration, and feed integration |
-| [OpenCTI Deployment](../docs/03-opencti-deployment.md) | OpenCTI services, container deployment, and application configuration |
-| [Network Security](../docs/04-network-security.md) | Management access restrictions, authentication, TLS, and network controls |
-| [Intelligence Connectors](../docs/05-intelligence-connectors.md) | External intelligence ingestion and enrichment integrations |
-| [Troubleshooting](../docs/06-troubleshooting.md) | Technical issues, root-cause analysis, and corrective actions |
-| [Validation Results](../docs/07-validation-results.md) | Operational verification and intelligence workflow results |
-| [Architecture](../architecture/README.md) | System components, architecture diagrams, and intelligence data flows |
+| [Infrastructure Deployment](../docs/01-infrastructure-deployment.md) | Infrastructure provisioning and container preparation |
+| [MISP Deployment](../docs/02-misp-deployment.md) | Threat intelligence collection and MISP configuration |
+| [OpenCTI Deployment](../docs/03-opencti-deployment.md) | OpenCTI platform and supporting services |
+| [Network Security](../docs/04-network-security.md) | Network restrictions, TLS, and access controls |
+| [Intelligence Connectors](../docs/05-intelligence-connectors.md) | Intelligence collection and enrichment integrations |
+| [Troubleshooting](../docs/06-troubleshooting.md) | Root-cause investigations and corrective actions |
+| [Validation Results](../docs/07-validation-results.md) | Operational validation and intelligence workflows |
+| [Architecture](../architecture/README.md) | Platform architecture and intelligence data flows |
 
 ---
 
 ## Future Evidence
 
-As the laboratory develops, additional evidence may document:
+Additional screenshots may document infrastructure resource utilization, observable relationships, advanced enrichment, new intelligence feeds, and further analytical investigations.
 
-- Detailed indicator enrichment results.
-- Observable relationships and intelligence graphs.
-- Threat actor and MITRE ATT&CK technique correlation.
-- Infrastructure performance and container resource monitoring.
-- Expanded threat intelligence collection workflows.
-- Additional intelligence assessments and investigation case studies.
-
-The evidence gallery will continue to evolve as new capabilities are deployed, tested, and documented.
+The evidence gallery will continue to expand as new laboratory capabilities are implemented and validated.
