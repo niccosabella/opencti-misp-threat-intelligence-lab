@@ -54,15 +54,27 @@ The primary objectives of this project are to:
 
 ## Lab Architecture
 
-The environment is hosted on Proxmox VE, with dedicated Linux virtual machines supporting MISP and OpenCTI.
+The environment is hosted on Proxmox Virtual Environment, with dedicated Linux virtual machines running containerized MISP and OpenCTI services.
 
-MISP serves as a threat intelligence collection and management platform, while OpenCTI provides centralized intelligence analysis, enrichment, and relationship modeling.
+MISP manages threat intelligence collection and sharing, while OpenCTI centralizes intelligence ingestion, enrichment, correlation, and analysis.
 
-External intelligence sources are integrated through dedicated connectors, allowing threat intelligence data to be imported and analyzed within OpenCTI.
+```mermaid
+flowchart LR
+    A["Threat Intelligence Feeds"] --> B["MISP"]
+    B -->|"API Integration"| C["OpenCTI"]
+    D["External Intelligence Sources"] -->|"Connectors"| C
+    C --> E["Intelligence Analysis & Reporting"]
 
-Docker Compose is used to manage application services, their dependencies, and connector deployments.
+    classDef platform fill:#173b5e,stroke:#57a0d3,color:#ffffff
+    classDef source fill:#264653,stroke:#69b3b0,color:#ffffff
+    classDef output fill:#274a39,stroke:#78b99a,color:#ffffff
 
-**Architecture diagram:** To be added following the infrastructure documentation and security review.
+    class B,C platform
+    class A,D source
+    class E output
+```
+
+For a detailed breakdown of the infrastructure, supporting services, and intelligence integrations, see the [Technical Architecture Documentation](architecture/README.md).
 
 ---
 
