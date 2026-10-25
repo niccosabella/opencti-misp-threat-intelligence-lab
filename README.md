@@ -1,135 +1,148 @@
-# OpenCTI & MISP Threat Intelligence Lab
+# CTI Lab Evidence
 
-### Self-Hosted Cyber Threat Intelligence Infrastructure | Proxmox • Docker • Linux • STIX 2.1
+This directory contains sanitized screenshots documenting the deployment, configuration, integration, and validation of the self-hosted Cyber Threat Intelligence (CTI) laboratory.
 
-## Project Overview
+The evidence demonstrates the operation of the underlying infrastructure, intelligence platforms, external integrations, and analysis workflows.
 
-This project documents the design, deployment, configuration, and operation of a self-hosted Cyber Threat Intelligence (CTI) laboratory built using OpenCTI, MISP, Proxmox Virtual Environment, and Docker.
-
-The environment was developed to explore how threat intelligence platforms collect, normalize, enrich, correlate, and operationalize intelligence from external sources. It provides a practical environment for investigating indicators of compromise (IOCs), analyzing adversary behavior, and developing structured intelligence assessments.
-
-Rather than relying solely on publicly available threat intelligence platforms, this project focuses on building and maintaining the underlying infrastructure while demonstrating how intelligence moves between interconnected systems.
-
-The lab also serves as an environment for developing threat intelligence analysis, infrastructure administration, and technical troubleshooting skills.
+All screenshots are reviewed before publication to exclude sensitive infrastructure details, authentication information, and other confidential data.
 
 ---
 
-## Project Objectives
+## Evidence Index
 
-The primary objectives of this project are to:
-
-- Design and deploy a virtualized, self-hosted threat intelligence environment.
-- Implement MISP for threat intelligence collection, event management, and indicator sharing.
-- Deploy OpenCTI as a centralized platform for intelligence analysis and knowledge management.
-- Integrate external threat intelligence sources and enrichment services.
-- Explore STIX-based intelligence modeling and relationships between indicators, observables, and threat actors.
-- Implement appropriate network segmentation, authentication, and access controls.
-- Troubleshoot infrastructure, networking, API connectivity, and connector integration issues.
-- Validate intelligence ingestion and enrichment through hands-on investigations.
-- Document the deployment process in a reproducible, security-conscious format.
-
----
-
-## Platforms and Technologies
-
-| Technology | Purpose |
+| Evidence | Description |
 |---|---|
-| Proxmox VE | Virtualization and infrastructure management |
-| Ubuntu Server | Linux operating system for CTI workloads |
-| Docker & Docker Compose | Container deployment and orchestration |
-| MISP | Threat intelligence collection, management, and sharing |
-| OpenCTI | Intelligence correlation, enrichment, visualization, and analysis |
-| Elasticsearch | Search and storage for OpenCTI intelligence data |
-| Redis | Caching and supporting services |
-| RabbitMQ | Asynchronous message processing |
-| MinIO | Object storage |
-| MITRE ATT&CK | Adversary tactics, techniques, and procedure intelligence |
-| AlienVault OTX | Community-driven threat intelligence |
-| CISA KEV | Known exploited vulnerability intelligence |
-| VirusTotal | Indicator reputation and enrichment |
-| urlscan.io | Website and URL analysis |
-| AbuseIPDB | IP address reputation and abuse reporting |
+| [Infrastructure Overview](#infrastructure-evidence) | Proxmox virtualization and host resource monitoring |
+| [MISP Dashboard](#misp-platform-evidence) | Operational threat intelligence collection platform |
+| [OpenPhish Feed Import](#openphish-intelligence-collection) | Imported threat intelligence event and URL attributes |
+| [OpenCTI Integrations](#opencti-integration-evidence) | External intelligence collection and enrichment connectors |
+| Intelligence Ingestion | Imported OpenCTI reports, indicators, and observables — planned |
+| Enrichment Results | Manual enrichment and resulting intelligence — planned |
+| Resource Monitoring | Application and container resource utilization — planned |
 
 ---
 
-## Lab Architecture
+## Infrastructure Evidence
 
-The environment is hosted on Proxmox Virtual Environment, with dedicated Linux virtual machines running containerized MISP and OpenCTI services.
+### Proxmox Virtual Environment
 
-MISP manages threat intelligence collection and sharing, while OpenCTI centralizes intelligence ingestion, enrichment, correlation, and analysis.
+![Sanitized Proxmox infrastructure overview](01-proxmox-infrastructure.png)
 
-```mermaid
-flowchart LR
-    A["Threat Intelligence Feeds"] --> B["MISP"]
-    B -->|"API Integration"| C["OpenCTI"]
-    D["External Intelligence Sources"] -->|"Connectors"| C
-    C --> E["Intelligence Analysis & Reporting"]
+**Figure 1 — Proxmox Infrastructure Overview**
 
-    classDef platform fill:#173b5e,stroke:#57a0d3,color:#ffffff
-    classDef source fill:#264653,stroke:#69b3b0,color:#ffffff
-    classDef output fill:#274a39,stroke:#78b99a,color:#ffffff
+The Proxmox management dashboard demonstrates the operational status of the virtualized CTI environment, including active virtual machines and host resource utilization.
 
-    class B,C platform
-    class A,D source
-    class E output
-```
+The dashboard provides visibility into CPU, memory, and storage consumption, supporting infrastructure monitoring and resource planning.
 
-For a detailed breakdown of the infrastructure, supporting services, and intelligence integrations, see the [Technical Architecture Documentation](architecture/README.md).
+Sensitive infrastructure identifiers have been permanently redacted.
 
 ---
 
-## Project Documentation
+## MISP Platform Evidence
 
-The laboratory's implementation, configuration, troubleshooting, and validation procedures are documented in the following technical guides.
+### MISP Threat Intelligence Dashboard
 
-| Documentation | Description |
-|---|---|
-| [Infrastructure Deployment](docs/01-infrastructure-deployment.md) | Proxmox virtualization, Ubuntu Server provisioning, resource planning, and Docker preparation. |
-| [MISP Deployment and Configuration](docs/02-misp-deployment.md) | MISP installation, HTTPS configuration, intelligence feeds, API integration, and troubleshooting. |
-| [OpenCTI Deployment and Configuration](docs/03-opencti-deployment.md) | OpenCTI deployment, supporting services, container orchestration, and resource optimization. |
-| [Network Security and Access Controls](docs/04-network-security.md) | Restricted management access, internal DNS, Docker firewall behavior, TLS, and authentication. |
-| [Threat Intelligence Connector Integration](docs/05-intelligence-connectors.md) | External intelligence collection, enrichment workflows, connector configuration, and API integration. |
-| [Troubleshooting and Problem Resolution](docs/06-troubleshooting.md) | Technical challenges, investigations, root-cause analysis, corrective actions, and verification. |
-| [Validation and Operational Results](docs/07-validation-results.md) | Evidence of platform availability, successful intelligence ingestion, enrichment, and resource monitoring. |
+![MISP threat intelligence dashboard](02-misp-dashboard.png)
 
-### Technical Architecture
+**Figure 2 — MISP Threat Intelligence Dashboard**
 
-For detailed information about the laboratory's components, supporting services, and intelligence data flows, see the [Architecture Documentation](architecture/README.md).
+The MISP dashboard demonstrates the operational intelligence collection platform, including imported attributes, event statistics, and intelligence reporting capabilities.
 
-### Documentation Approach
+The dashboard also displays an intelligence report associated with an OpenPhish investigation, demonstrating the platform's ability to organize collected intelligence for subsequent analysis.
 
-The documentation emphasizes reproducible deployment practices, technical decision-making, security considerations, and evidence-based validation.
+---
 
-Configuration examples are sanitized, and the repository is maintained as an evolving technical reference as the laboratory develops.
+## OpenPhish Intelligence Collection
+
+### Imported MISP Event
+
+![Sanitized OpenPhish intelligence event](03-misp-openphish-feed.png)
+
+**Figure 3 — OpenPhish Threat Intelligence Feed Import**
+
+The MISP event view demonstrates the successful ingestion of URL-based threat intelligence from the OpenPhish feed.
+
+Imported URLs are organized as event attributes, allowing the intelligence to be reviewed, managed, and transferred to OpenCTI through an authenticated connector.
+
+The screenshot demonstrates the collection and organization of threat intelligence. It does not independently establish that every imported URL remains malicious.
+
+Sensitive account information, internal identifiers, and individual URL values have been redacted.
+
+---
+
+## OpenCTI Integration Evidence
+
+### Intelligence Collection and Enrichment Connectors
+
+![OpenCTI connector integrations](04-opencti-connectors.png)
+
+**Figure 4 — OpenCTI Threat Intelligence Integrations**
+
+The OpenCTI integrations interface demonstrates the deployment and registration of external intelligence collection and internal enrichment connectors.
+
+The environment incorporates external intelligence sources such as MISP, MITRE ATT&CK, AlienVault OTX, and CISA Known Exploited Vulnerabilities, alongside enrichment capabilities provided by VirusTotal, urlscan.io, and AbuseIPDB.
+
+The integrations support complementary intelligence workflows, including threat intelligence collection, observable enrichment, vulnerability intelligence, and adversary behavior analysis.
+
+Active connector status demonstrates registration and connectivity with OpenCTI at the time of capture. Successful intelligence ingestion and enrichment are verified separately through application records and execution results.
+
+---
+
+## Evidence Collection Methodology
+
+Screenshots are selected to demonstrate specific technical capabilities, implementation decisions, or operational validation results.
+
+Each image should support a documented implementation step, system capability, or intelligence workflow.
+
+Evidence is organized according to the following principles:
+
+1. **Relevance:** Each screenshot demonstrates a meaningful technical capability or operational result.
+2. **Authenticity:** Screenshots originate from the deployed laboratory environment.
+3. **Clarity:** Images are cropped appropriately to emphasize relevant information.
+4. **Security:** Confidential information is removed before committing images.
+5. **Traceability:** Screenshots are associated with the appropriate deployment, integration, or validation documentation.
+6. **Accuracy:** Captions distinguish demonstrated functionality from assumptions or incomplete validation.
+
+The purpose of this evidence collection is to demonstrate technical implementation and verification rather than simply display application interfaces.
 
 ---
 
 ## Security and Privacy
 
-This repository contains sanitized documentation of a private cybersecurity laboratory.
+All screenshots are reviewed and sanitized before being committed to the repository.
 
-Internal network addresses, management endpoints, authentication credentials, API tokens, and identifying infrastructure information are excluded or replaced with documentation examples.
+Information requiring removal or sanitization includes:
 
-Configuration examples are provided for educational purposes and should not be interpreted as exact copies of the operational environment.
+- Internal IP addresses and private network ranges.
+- Internal DNS names and management endpoints.
+- Authentication credentials and API keys.
+- Session tokens and authorization headers.
+- Personal or administrative account information.
+- Public IP addresses associated with private infrastructure.
+- Sensitive configuration values and operational network details.
+- Infrastructure identifiers unnecessary to demonstrate technical functionality.
 
-Sensitive values are never intentionally committed to the repository.
+Redactions are applied permanently to exported images rather than through reversible overlays, blur effects, or transparent shapes.
+
+Original screenshots containing operational information are not included in the repository.
+
+Images are reviewed after export to verify that sensitive details are no longer visible.
+
+Screenshots are intended to document system functionality without exposing the underlying operational environment.
 
 ---
 
-## Project Status
+## Supporting Documentation
 
-**Active Development and Continuous Improvement**
+For additional technical information about the laboratory, refer to:
 
-The laboratory is operational and continues to evolve through additional intelligence sources, infrastructure improvements, analysis workflows, and hands-on investigations.
+- [Infrastructure Deployment](../docs/01-infrastructure-deployment.md)
+- [MISP Deployment and Configuration](../docs/02-misp-deployment.md)
+- [OpenCTI Deployment and Configuration](../docs/03-opencti-deployment.md)
+- [Network Security and Access Controls](../docs/04-network-security.md)
+- [Threat Intelligence Connector Integration](../docs/05-intelligence-connectors.md)
+- [Troubleshooting and Problem Resolution](../docs/06-troubleshooting.md)
+- [Validation and Operational Results](../docs/07-validation-results.md)
+- [Technical Architecture](../architecture/README.md)
 
-The documentation will be updated to reflect meaningful architectural changes, technical findings, and lessons learned.
-
----
-
-## References
-
-- [OpenCTI Documentation](https://docs.opencti.io/)
-- [MISP Project](https://www.misp-project.org/)
-- [Proxmox Virtual Environment](https://www.proxmox.com/)
-- [MITRE ATT&CK](https://attack.mitre.org/)
-- [STIX 2.1 Specification](https://docs.oasis-open.org/cti/stix/v2.1/stix-v2.1.html)
+Additional evidence will be incorporated as the laboratory develops and new integration or analysis workflows are validated.
