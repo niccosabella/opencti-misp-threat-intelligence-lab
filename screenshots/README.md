@@ -1,11 +1,11 @@
-## Infrastructure Evidence
+## MISP Platform Evidence
 
-### Proxmox Virtual Environment
+### MISP Dashboard
 
-![Sanitized Proxmox infrastructure overview](01-proxmox-infrastructure.png)
+![MISP threat intelligence dashboard](02-misp-dashboard.png)
 
-**Figure 1 — Proxmox Infrastructure Overview**
+**Figure 2 — MISP Threat Intelligence Dashboard**
 
-The Proxmox management dashboard demonstrates the operational status of the virtualized CTI environment and provides visibility into host resource utilization.
+The MISP dashboard demonstrates the operational intelligence collection platform, including imported attributes, event statistics, and intelligence reporting capabilities.
 
-Sensitive infrastructure identifiers have been permanently redacted.
+The screenshot provides evidence that MISP is accessible and managing threat intelligence data within the laboratory environment.
